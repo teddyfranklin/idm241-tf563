@@ -132,10 +132,25 @@
             </section>
         </div>
 
-        <div class="media" role="img" aria-label="Animated GIF of the existing microinteraction">
-            <img src="images/artGrindDemo.gif" alt="gif of site demo">
-            <span class="mediaPlaceholder">GIF</span>
+        <div class="aside" id="aside">
+            <div class="media">
+                <img src="images/artGrindDemo.gif" alt="gif of site demo">
+            </div>
         </div>
     </main>
+
+    <script>
+        // On desktop the Final Assets section lives under the GIF (own scroll);
+        // below the breakpoint it returns to the end of the text column.
+        const assets = document.querySelector('.visualsSection');
+        const writing = document.querySelector('.writing');
+        const aside = document.getElementById('aside');
+        const desktop = window.matchMedia('(min-width: 901px)');
+        function placeAssets() {
+            (desktop.matches ? aside : writing).appendChild(assets);
+        }
+        desktop.addEventListener('change', placeAssets);
+        placeAssets();
+    </script>
 </body>
 </html>
