@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microinteraction Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <a href="#interfaceHeading" class="skip">skip to content</a>
+
+    <main>
+        <section class="interfaceSection" aria-labelledby="interfaceHeading">
+            <h1 class="interfaceHeading" id="interfaceHeading" tabindex="0">Original Interface</h1>
+            <p class="interfaceText">Placeholder text describing the public-facing interface (website, application, game, etc.) that this project aims to improve.</p>
+            <a class="interfaceLink" href="https://example.com">Original interface URL</a>
+        </section>
+
+        <section class="locateSection" aria-labelledby="locateHeading">
+            <h1 class="locateHeading" id="locateHeading" tabindex="0">Locating the Object</h1>
+            <p class="locateText">To locate the "Play a chime at:" button, navigate to the board selection dashboard by selecting the "continue without login" option on the homescreen, move your cursor to the "play a chime at:" section of the board at the bottom of the screen. The buttons between "play a chime at" and "Start timed practice" are the objects we are focusing on.</p>
+        </section>
+
+        <section class="triggersSection" aria-labelledby="triggersHeading">
+            <h1 class="triggersHeading" id="triggersHeading" tabindex="0">Triggers</h1>
+            <p class="triggersText">Click on:</p>
+            <p class="triggersText">Click off:</p>
+            <p class="triggersText">Hover on:</p>
+            <p class="triggersText">Hover off:</p>
+        </section>
+
+        <section class="rulesSection" aria-labelledby="rulesHeading">
+            <h1 class="rulesHeading" id="rulesHeading" tabindex="0">Rules</h1>
+            <h2 class="ruleOneHeading">Hover</h2>
+            <p class="ruleOneText">
+                <ul class="hoverList">
+                    <li>Hover On: Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
+                    <li>Hover Off: Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
+                </ul>
+            </p>
+            <h2 class="ruleTwoHeading">Click</h2>
+            <p class="ruleTwoText">Click</p>
+            <p class="ruleOneText">
+                <ul class="clickList">
+                    <li>Click On: Sets the background color from #efefef to #000000</li>
+                    <li>Click On: Sets the text color from to #000000 to #ffffff</li>
+                    <li>Click On: Fills the checkbox square to the left of the button content text with a smaller square</li>
+                    <li>Click On: Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                    <li>Click On: User will now hear an audio effect at the selected time interval during their drawing session</li>
+                    <li>Click Off: Changes the background color from #000000 to #efefef</li>
+                    <li>Click Off: Sets the text color from #ffffff to #000000</li>
+                    <li>Click Off: Unfills the checkbox square to the left of the button content text</li>
+                    <li>Click Off: Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                </ul>
+            </p>
+        </section>
+
+        <section class="feedbackSection" aria-labelledby="feedbackHeading">
+            <h1 class="feedbackHeading" id="feedbackHeading" tabindex="0">Feedback</h1>
+            <h2 class="feedbackHoverHeading">Hover</h2>
+            <p class="feedbackHoverText">
+                <ul class="feedbackHoverList">
+                    <li>Hover On: Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
+                    <li>Hover Off: Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
+                </ul>
+            </p>
+            <h2 class="feedbackClickHeading">Click</h2>
+            <p class="feedbackClickText">Click</p>
+            <p class="feedbackClickText">
+                <ul class="feedbackClickList">
+                    <li>Click On: Sets the background color from #efefef to #000000</li>
+                    <li>Click On: Sets the text color from to #000000 to #ffffff</li>
+                    <li>Click On: Fills the checkbox square to the left of the button content text with a smaller square</li>
+                    <li>Click On: Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                    <li>Click Off: Changes the background color from #000000 to #efefef</li>
+                    <li>Click Off: Sets the text color from #ffffff to #000000</li>
+                    <li>Click Off: Unfills the checkbox square to the left of the button content text</li>
+                    <li>Click Off: Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                </ul>
+            </p>
+        </section>
+
+        <section class="loopsSection" aria-labelledby="loopsHeading">
+            <h1 class="loopsHeading" id="loopsHeading" tabindex="0">Loops &amp; Modes</h1>
+            <h2 class="loopsSubheading">Loops</h2>
+            <p class="loopsText">There are no loops present in the microinteraction</p>
+            <h2 class="modesSubheading">Modes</h2>
+            <p class="modesText">The button has an active and passive mode. Hovering over the active button lowers its opacity to 80%.</p>
+        </section>
+
+        <section class="visualsSection" aria-labelledby="visualsHeading">
+            <h1 class="visualsHeading" id="visualsHeading" tabindex="0">Visualizations</h1>
+            <p class="visualsText">Placeholder text introducing the static images and animations that show how the existing microinteraction works.</p>
+            <div class="visualsCollection" role="region" aria-label="Static images and animations of the existing microinteraction"></div>
+        </section>
+    </main>
+</body>
+</html>
+
+
