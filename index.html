@@ -3,70 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Microinteraction Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <a href="#overviewHeading" class="skip">skip to content</a>
+    <a href="#interfaceHeading" class="skip">skip to content</a>
 
     <main>
-        <img class="hero" src="assets/images/aboutImage.JPG" alt="The project's About page featuring an eye graphic with overlaid blocks of text.">
-        <a href="https://artgrind.art">website</a>
-
-        <section class="overviewSection" aria-labelledby="overviewHeading">
-            <h1 class="overviewHeading" id="overviewHeading" tabindex="0">Overview</h1>
-            <p class="overviewText">This case study recounts the insights gleaned while creating a web-accessible site for a scripting class. Each assignment we were given covered a different topic in accessibility. Putting these assignments together culminated in a fully functional live site that accounts for the large swath of the population requiring these features. Extra emphasis was put on keyboard navigation, accessible typography, and semantic HTML.</p>
+        <section class="interfaceSection" aria-labelledby="interfaceHeading">
+            <h1 class="interfaceHeading" id="interfaceHeading" tabindex="0">Original Interface</h1>
+            <p class="interfaceText">Placeholder text describing the public-facing interface (website, application, game, etc.) that this project aims to improve.</p>
+            <a class="interfaceLink" href="https://example.com">Original interface URL</a>
         </section>
 
-        <section class="contextSection" aria-labelledby="contextHeading">
-            <h1 class="contextHeading" id="contextHeading" tabindex="0">Triggers</h1>
-            <h2 class="backgroundHeading">Background</h2>
-            <p class="backgroundText">This project was done for the recently introduced Scripting for Accessibility elective. This class served as an introduction to all of the main topics and techniques within the realm of web accessibility. It showed us how to make web pages readable for a wide variety of users.</p>
-            <h2 class="problemHeading">The Problem</h2>
-            <p class="problemText">This project exists to exemplify how sites should be designed to account for users with disabilities. Disabilities impact people in drastically different ways, which requires developers to use a wide array of tools as a means to meet user needs. Visually impaired users require highly visible typography, physically impaired users require keyboard navigation to use sites, and cognitively impaired users require sites to have an easily understandable structure. The needs of those with disabilities are incredibly diverse, and this site acts as a guide for best practices when designing for these groups.</p>
-            <h2 class="goalsHeading">Goals</h2>
-            <p class="goalsText">The most tangible objective for this project is a functional site that is easily navigable using only a keyboard. This requires the employment of tools such as aria labels, skip-content buttons, and semantic HTML. The other main performance metric applicable to this project is its adherence to the WCAG. This document specifies appropriate color contrast values, fonts, and general best practices.</p>
+        <section class="locateSection" aria-labelledby="locateHeading">
+            <h1 class="locateHeading" id="locateHeading" tabindex="0">Locating the Object</h1>
+            <p class="locateText">To locate the "Play a chime at:" button, navigate to the board selection dashboard by selecting the "preset boards" option on the homescreen, move your cursor to the "play a chime at:" section of the board at the bottom of the screen. The buttons between "play a chime at" and "Start timed practice" are the objects we are focusing on.</p>
         </section>
 
-        <section class="Section" aria-labelledby="processHeading">
-            <h1 class="processHeading" id="processHeading" tabindex="0">Rules</h1>
-            <h2 class="sketchesHeading">Sketches</h2>
-            <p class="sketchesText">Below are drawings I made to plan the layouts for certain pages. I like to define content areas on pen/paper before going directly into CSS. This process saves me the time of creating assets in figma and forces me to create a mental model for CSS.</p>
-            <div class="sketchesCollection" role="region" aria-label="Sketch drawings of page layouts"></div>
-            <h2 class="typographyHeading">Color and Typography</h2>
-            <p class="typographyText">Our first assignment was to create a color scheme and typography plan that met WCA guidelines. I chose a sans-serif typeface and an easily parsable color scheme to ensure readers would not have difficulty understanding any of the content.</p>
-            <h2 class="prototypeHeading">Prototypes</h2>
-            <p class="prototypeText1">Our second assignment was to strip an existing live website of its CSS and add accessibility features to it. Without understanding how much of an undertaking this would be, I decided to do this assignment on a shopify site with over 10k lines of HTML. I stayed up until about 4am trying to complete this assignment, and the final product left much to be desired.</p>
-            <img class="prototypeImage1" src="assets/images/assignmentImage02.JPG" alt="First attempt at Assignment 02 showing a bare-bones HTML page stripped of all styling.">
-            <p class="prototypeText2">Our following assignments were to expand on this site by adding new pages and accessibility features. I wisely decided to do these assignments on a site I built from scratch.</p>
-            <h2 class="codeHeading">Code</h2>
-            <p class="codeText">The hardest coding assignment for this course was the form validation. This required the use of an array of objects for the text fields, and a separate method for the email field.</p>
+        <section class="triggersSection" aria-labelledby="triggersHeading">
+            <h1 class="triggersHeading" id="triggersHeading" tabindex="0">Triggers</h1>
+            <p class="triggersText">Click on:</p>
+            <p class="triggersText">Click off:</p>
         </section>
 
-        <section class="solutionSection" aria-labelledby="solutionHeading">
-            <h1 class="solutionHeading" id="solutionHeading" tabindex="0">Feedback</h1>
-            <p class="solutionText">The final project features a fully keyboard navigable site with 3 main content pages. These pages include a landing page, an about page, and a contact page. Each page is fully responsive, using media queries that put content into a single column upon hitting a certain threshold to ensure content is legible on mobile devices. Each page’s text is large enough to be accessible for screen readers and features an appropriate amount of visual contrast.</p>
-            <img class="landingImage" src="assets/images/finalHomePage380.JPG" alt="An image of the project's finished landing page showing a spacious layout with red and blue heading elements.">
-            <img class="contactImage" src="assets/images/contactPage380.JPG" alt="An image of the project's finished contact page showing multiple rows of form inputs.">
+        <section class="rulesSection" aria-labelledby="rulesHeading">
+            <h1 class="rulesHeading" id="rulesHeading" tabindex="0">Rules</h1>
+            <h2 class="ruleOneHeading">Rule 1</h2>
+            <p class="ruleOneText">Placeholder text describing the first rule that governs the existing microinteraction.</p>
+            <h2 class="ruleTwoHeading">Rule 2</h2>
+            <p class="ruleTwoText">Placeholder text describing the second rule that governs the existing microinteraction.</p>
         </section>
 
-        <section class="solutionSection" aria-labelledby="solutionHeading">
-            <h1 class="solutionHeading" id="solutionHeading" tabindex="0">Loops & Modes</h1>
-            <p class="solutionText">The final project features a fully keyboard navigable site with 3 main content pages. These pages include a landing page, an about page, and a contact page. Each page is fully responsive, using media queries that put content into a single column upon hitting a certain threshold to ensure content is legible on mobile devices. Each page’s text is large enough to be accessible for screen readers and features an appropriate amount of visual contrast.</p>
-            <img class="landingImage" src="assets/images/finalHomePage380.JPG" alt="An image of the project's finished landing page showing a spacious layout with red and blue heading elements.">
-            <img class="contactImage" src="assets/images/contactPage380.JPG" alt="An image of the project's finished contact page showing multiple rows of form inputs.">
+        <section class="feedbackSection" aria-labelledby="feedbackHeading">
+            <h1 class="feedbackHeading" id="feedbackHeading" tabindex="0">Feedback</h1>
+            <h2 class="seeHeading">See</h2>
+            <p class="seeText">Placeholder text describing what the user sees during the microinteraction.</p>
+            <h2 class="hearHeading">Hear</h2>
+            <p class="hearText">Placeholder text describing what the user hears during the microinteraction.</p>
+            <h2 class="feelHeading">Feel</h2>
+            <p class="feelText">Placeholder text describing what the user feels during the microinteraction.</p>
         </section>
 
-                <section class="solutionSection" aria-labelledby="solutionHeading">
-            <h1 class="solutionHeading" id="solutionHeading" tabindex="0">Example Gallery</h1>
-            <p class="solutionText">The final project features a fully keyboard navigable site with 3 main content pages. These pages include a landing page, an about page, and a contact page. Each page is fully responsive, using media queries that put content into a single column upon hitting a certain threshold to ensure content is legible on mobile devices. Each page’s text is large enough to be accessible for screen readers and features an appropriate amount of visual contrast.</p>
-            <img class="landingImage" src="assets/images/finalHomePage380.JPG" alt="An image of the project's finished landing page showing a spacious layout with red and blue heading elements.">
-            <img class="contactImage" src="assets/images/contactPage380.JPG" alt="An image of the project's finished contact page showing multiple rows of form inputs.">
+        <section class="loopsSection" aria-labelledby="loopsHeading">
+            <h1 class="loopsHeading" id="loopsHeading" tabindex="0">Loops &amp; Modes</h1>
+            <h2 class="loopsSubheading">Loops</h2>
+            <p class="loopsText">Placeholder text describing any repeating objects or behaviors in the microinteraction.</p>
+            <h2 class="modesSubheading">Modes</h2>
+            <p class="modesText">Placeholder text describing how the microinteraction changes when conditions change, including any additional modules.</p>
         </section>
 
-        <section class="resultsSection" aria-labelledby="resultsHeading">
-            <h1 class="resultsHeading" id="resultsHeading" tabindex="0">Results</h1>
-            <p class="resultsText">The final site contains follows WCAG guidelines and meets requirements for keyboard accessibility. If I were to redo this assignment I would remake the landing pages so that it does a better job of communicating information to the viewer. I feel that more could be said with the amount of space used. It may not be the most complicated or flashy site out there, but I am certainly proud of how far I came with this project when considering where I started.</p>
+        <section class="visualsSection" aria-labelledby="visualsHeading">
+            <h1 class="visualsHeading" id="visualsHeading" tabindex="0">Visualizations</h1>
+            <p class="visualsText">Placeholder text introducing the static images and animations that show how the existing microinteraction works.</p>
+            <div class="visualsCollection" role="region" aria-label="Static images and animations of the existing microinteraction"></div>
         </section>
     </main>
 </body>
