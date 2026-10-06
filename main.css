@@ -47,44 +47,60 @@ body {
 /* Header: oversized title with one thick line beneath it */
 .pageHeader {
     flex: none;
-    padding: 0 1.5vw 12px;
-    border-bottom: 6px solid var(--color-dark);
+    padding: 16px 4vw 14px;
+    background: var(--color-dark);
 }
 
 .pageTitle {
     font-family: var(--heading-font);
     font-weight: 700;
-    font-size: 5.85vw;
+    font-size: 5.615vw;
     line-height: 1.15;
-    color: var(--color-dark);
+    color: var(--color-bg);
+    text-align: center;
     white-space: nowrap;
 }
 
-/* Body: scrolling text column + fixed media column */
+/* Body: scrolling text column (1fr) + scrolling assets column (2fr) */
 main {
     flex: 1;
     min-height: 0;
     display: grid;
-    grid-template-columns: minmax(0, 570px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
     column-gap: 4vw;
     align-items: stretch;
     padding: 0 4vw;
 }
 
-/* Right column: GIF on top, Final Assets scrolling beneath it */
 .aside {
     height: 100%;
     min-height: 0;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
     padding: 2rem 1rem 2rem 0;
 }
 
 .writing,
 .aside {
     scrollbar-color: rgba(122, 74, 44, 0.85) rgba(122, 74, 44, 0.3);
+}
+
+/* Centered subheading under the page title, dashed rule spans both columns */
+.alphaBlock {
+    flex: none;
+    margin: 2.5rem 4vw 0;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px dashed var(--color-mocha);
+    text-align: center;
+}
+
+.alphaHeading {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.3vw, 3.45rem);
+    line-height: 1.15;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--color-text);
 }
 
 .writing {
@@ -129,6 +145,42 @@ h3 {
     line-height: normal;
 }
 
+h4 {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 16px;
+}
+
+h4 + ul {
+    margin-left: 16px;
+}
+
+/* Feedback: Sees > Hover/Click > On/Off */
+.feedbackSees {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedbackGroup {
+    font-size: 1.15rem;
+    margin-left: 24px;
+}
+
+h5 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 40px;
+}
+
+h5 + ul {
+    margin-left: 40px;
+}
+
 p, li {
     line-height: 1.55;
     letter-spacing: 0.02em;
@@ -148,13 +200,37 @@ a {
     padding-left: 0;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 28px;
+}
+
+.assetsHeading {
+    font-family: var(--heading-font);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-mocha);
+}
+
+.assetsSubheading {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-mocha);
+    padding-left: 0;
+}
+
+.assetList li {
+    border-left: 6px solid var(--color-dark);
+    padding-left: 14px;
 }
 
 .assetList img {
     display: block;
     width: 100%;
-    height: auto;
+    aspect-ratio: 930 / 100;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .assetList li::marker {
@@ -162,15 +238,7 @@ a {
 }
 
 .assetList p {
-    margin-top: 0.25rem;
-    padding-left: 24px;
-    position: relative;
-}
-
-.assetList p::before {
-    content: "\2022";
-    position: absolute;
-    left: 8px;
+    margin-bottom: 0.5rem;
 }
 
 /* GIF frame stays put while the text column scrolls */
@@ -192,7 +260,7 @@ a {
     object-fit: cover;
 }
 
-/* Smaller screens: single column, normal page scroll, GIF first */
+/* Smaller screens: stacked title, tighter padding */
 @media (max-width: 900px) {
     body {
         display: block;
@@ -200,8 +268,26 @@ a {
         overflow: visible;
     }
 
+    main {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem 1rem 2rem;
+        gap: 1.5rem;
+    }
+
+    .alphaBlock {
+        margin: 1.25rem 1rem 0;
+    }
+
+    .writing,
+    .aside {
+        height: auto;
+        overflow: visible;
+        padding: 0;
+    }
+
     .pageHeader {
-        padding: 0 1rem 12px;
+        padding: 15px 1rem;
     }
 
     .pageTitle {
@@ -222,28 +308,13 @@ a {
         font-size: 6.8vw;
     }
 
-    main {
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem 1rem 2rem;
-        gap: 1.5rem;
-    }
-
-    .aside {
-        order: -1;
-        height: auto;
-        overflow: visible;
-        padding: 0;
+    .alphaHeading {
+        font-size: 2.5rem;
+        white-space: normal;
     }
 
     .media {
         border-radius: 18px;
-    }
-
-    .writing {
-        height: auto;
-        overflow: visible;
-        padding: 0;
     }
 
     .sectionBody {
