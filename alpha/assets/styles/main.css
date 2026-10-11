@@ -23,10 +23,6 @@ body {
     color: var(--color-text);
     font-family: var(--body-font);
     font-size: var(--text-body);
-    display: flex;
-    flex-direction: column;
-    height: 100dvh;
-    overflow: hidden;
 }
 
 .skip {
@@ -46,7 +42,6 @@ body {
 
 /* Header: oversized title with one thick line beneath it */
 .pageHeader {
-    flex: none;
     padding: 16px 4vw 14px;
     background: var(--color-dark);
 }
@@ -61,36 +56,23 @@ body {
     white-space: nowrap;
 }
 
-/* Body: scrolling text column (1fr) + scrolling assets column (2fr) */
+/* Body: single column, text first then assets */
 main {
-    flex: 1;
-    min-height: 0;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-    column-gap: 4vw;
-    align-items: stretch;
-    padding: 0 4vw;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 4vw 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
 }
 
-.aside {
-    height: 100%;
-    min-height: 0;
-    overflow-y: auto;
-    padding: 2rem 1rem 2rem 0;
-}
-
-.writing,
-.aside {
-    scrollbar-color: rgba(122, 74, 44, 0.85) rgba(122, 74, 44, 0.3);
-}
-
-/* Centered subheading under the page title, dashed rule spans both columns */
+/* Left-aligned subheading under the page title, lined up with the content column */
 .alphaBlock {
-    flex: none;
-    margin: 2.5rem 4vw 0;
+    width: min(calc(100% - 8vw), calc(960px - 8vw));
+    margin: 2.5rem auto 0;
     padding-bottom: 1.25rem;
     border-bottom: 2px dashed var(--color-mocha);
-    text-align: center;
+    text-align: left;
 }
 
 .alphaHeading {
@@ -104,9 +86,6 @@ main {
 }
 
 .writing {
-    height: 100%;
-    overflow-y: auto;
-    padding: 2rem 1rem 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 26px;
@@ -248,7 +227,6 @@ a {
     aspect-ratio: 1120 / 544;
     border: 2px solid var(--color-text);
     border-radius: 26px;
-    flex: none;
     overflow: hidden;
 }
 
@@ -262,28 +240,14 @@ a {
 
 /* Smaller screens: stacked title, tighter padding */
 @media (max-width: 900px) {
-    body {
-        display: block;
-        height: auto;
-        overflow: visible;
-    }
-
     main {
-        display: flex;
-        flex-direction: column;
         padding: 1.5rem 1rem 2rem;
         gap: 1.5rem;
     }
 
     .alphaBlock {
+        width: auto;
         margin: 1.25rem 1rem 0;
-    }
-
-    .writing,
-    .aside {
-        height: auto;
-        overflow: visible;
-        padding: 0;
     }
 
     .pageHeader {
