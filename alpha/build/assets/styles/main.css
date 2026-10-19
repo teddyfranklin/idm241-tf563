@@ -1,0 +1,556 @@
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-bg: #fffff8;
+    --color-dark: #271f16;
+    --color-text: #000;
+    --color-light: #fff;
+    --neutral-gray: #878287;
+    --color-mocha: #7a4a2c;
+    --text-body: 1rem;
+    --h2-size: 1.625rem;
+    --h3-size: 1.25rem;
+    --body-font: 'Libre Franklin', Tahoma, Verdana, sans-serif;
+    --heading-font: 'Libre Franklin', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--body-font);
+    font-size: var(--text-body);
+}
+
+.skip {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+    line-height: 1.6;
+    color: var(--neutral-gray);
+}
+
+.skip:focus {
+    opacity: 1;
+    z-index: 1000;
+    left: 5%;
+    font-size: 1.5rem;
+}
+
+/* Header: oversized title with one thick line beneath it */
+.pageHeader {
+    padding: 16px 4vw 14px;
+    background: var(--color-dark);
+}
+
+.pageTitle {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: 5.615vw;
+    line-height: 1.15;
+    color: var(--color-bg);
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Body: single column, text first then assets */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 4vw 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+/* Left-aligned subheading under the page title, lined up with the content column */
+.alphaBlock {
+    width: min(calc(100% - 8vw), calc(960px - 8vw));
+    margin: 2.5rem auto 0;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px dashed var(--color-mocha);
+    text-align: left;
+}
+
+.alphaHeading {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    font-size: clamp(1.6rem, 3.3vw, 3.45rem);
+    line-height: 1.15;
+    text-transform: uppercase;
+    white-space: nowrap;
+    color: var(--color-text);
+}
+
+.writing {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sectionHeading {
+    font-family: var(--heading-font);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-light);
+    padding: 0.4rem 10px;
+    border-radius: 5px;
+    background-image:
+        linear-gradient(90deg, rgba(122, 74, 44, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%),
+        linear-gradient(90deg, var(--color-mocha), var(--color-mocha));
+}
+
+.sectionBody {
+    padding: 0 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+h3 {
+    font-family: var(--heading-font);
+    font-size: var(--h3-size);
+    font-weight: 600;
+    line-height: normal;
+}
+
+h4 {
+    font-family: var(--heading-font);
+    font-size: 1.05rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 16px;
+}
+
+h4 + ul {
+    margin-left: 16px;
+}
+
+/* Feedback: Sees > Hover/Click > On/Off */
+.feedbackSees {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.feedbackGroup {
+    font-size: 1.15rem;
+    margin-left: 24px;
+}
+
+h5 {
+    font-family: var(--heading-font);
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: normal;
+    margin-left: 40px;
+}
+
+h5 + ul {
+    margin-left: 40px;
+}
+
+p, li {
+    line-height: 1.55;
+    letter-spacing: 0.02em;
+}
+
+ul {
+    padding-left: 24px;
+}
+
+a {
+    color: inherit;
+}
+
+/* Final assets */
+.assetList {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.assetsHeading {
+    font-family: var(--heading-font);
+    font-size: var(--h2-size);
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-mocha);
+}
+
+.assetsSubheading {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: normal;
+    color: var(--color-mocha);
+    padding-left: 0;
+}
+
+.assetList li {
+    border-left: 6px solid var(--color-dark);
+    padding-left: 14px;
+}
+
+.assetList img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 930 / 100;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.assetList li::marker {
+    content: none;
+}
+
+.assetList p {
+    margin-bottom: 0.5rem;
+}
+
+/* GIF frame stays put while the text column scrolls */
+.media {
+    width: 100%;
+    max-width: 1120px;
+    aspect-ratio: 1120 / 544;
+    border: 2px solid var(--color-text);
+    border-radius: 26px;
+    overflow: hidden;
+}
+
+/* GIF fills the frame; anything outside its bounds is cropped */
+.media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.demoButton {
+    display: inline-flex;
+    box-sizing: border-box;
+    width: fit-content;
+    height: 4vh;
+    margin-bottom: 2rem;
+    color: #000000;
+    background-color: #efefef;
+    opacity: 1;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1.25vh;
+    font: inherit;
+    border-radius: 999px;
+    transform: none;
+}
+
+.settingButtonPassive {
+    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --color-red-500: oklch(63.7% .237 25.331);
+    --color-gray-100: oklch(96.7% .003 264.542);
+    --color-gray-200: oklch(92.8% .006 264.531);
+    --color-gray-300: oklch(87.2% .01 258.338);
+    --color-gray-800: oklch(27.8% .033 256.848);
+    --color-black: #101010;
+    --color-white: #fff;
+    --spacing: .25rem;
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --leading-snug: 1.375;
+    --radius-xs: .125rem;
+    --radius-sm: .25rem;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --radius-xl: .75rem;
+    --radius-2xl: 1rem;
+    --blur-md: 12px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --font-fornire: "fornire-light",Arial,sans-serif;
+    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
+    --color-gray-dark: #6a6a6a;
+    --color-gray-light: #9c9c9c;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    opacity: 1;
+    appearance: button;
+    gap: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 4);
+    user-select: none;
+    -webkit-user-drag: none;
+    background-color: #efefef;
+    border: none;
+    border-radius: 9999px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    font-weight: 500;
+    transition: all .2s ease-out;
+    display: inline-flex;
+    height: 4vh;
+    padding: 0 1.25vh;
+    transform: none;
+}
+
+.settingButtonPassiveBox {
+    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --color-red-500: oklch(63.7% .237 25.331);
+    --color-gray-100: oklch(96.7% .003 264.542);
+    --color-gray-200: oklch(92.8% .006 264.531);
+    --color-gray-300: oklch(87.2% .01 258.338);
+    --color-gray-800: oklch(27.8% .033 256.848);
+    --color-black: #101010;
+    --color-white: #fff;
+    --spacing: .25rem;
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --leading-snug: 1.375;
+    --radius-xs: .125rem;
+    --radius-sm: .25rem;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --radius-xl: .75rem;
+    --radius-2xl: 1rem;
+    --blur-md: 12px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --font-fornire: "fornire-light",Arial,sans-serif;
+    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
+    --color-gray-dark: #6a6a6a;
+    --color-gray-light: #9c9c9c;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 1.5vh;
+    width: 1.5vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: currentColor;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.settingButtonActive {
+    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --color-red-500: oklch(63.7% .237 25.331);
+    --color-gray-100: oklch(96.7% .003 264.542);
+    --color-gray-200: oklch(92.8% .006 264.531);
+    --color-gray-300: oklch(87.2% .01 258.338);
+    --color-gray-800: oklch(27.8% .033 256.848);
+    --color-black: #101010;
+    --color-white: #fff;
+    --spacing: .25rem;
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --leading-snug: 1.375;
+    --radius-xs: .125rem;
+    --radius-sm: .25rem;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --radius-xl: .75rem;
+    --radius-2xl: 1rem;
+    --blur-md: 12px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --font-fornire: "fornire-light",Arial,sans-serif;
+    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
+    --color-gray-dark: #6a6a6a;
+    --color-gray-light: #9c9c9c;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    box-sizing: border-box;
+    margin: 0;
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    opacity: 1;
+    appearance: button;
+    gap: calc(var(--spacing) * 2);
+    padding-inline: calc(var(--spacing) * 4);
+    user-select: none;
+    -webkit-user-drag: none;
+    border: none;
+    border-radius: 9999px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    font-weight: 500;
+    transition: all .2s ease-out;
+    display: inline-flex;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    height: 4vh;
+    padding: 0 1.25vh;
+    transform: none;
+}
+
+.settingButtonActiveBox {
+    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+    --color-red-500: oklch(63.7% .237 25.331);
+    --color-gray-100: oklch(96.7% .003 264.542);
+    --color-gray-200: oklch(92.8% .006 264.531);
+    --color-gray-300: oklch(87.2% .01 258.338);
+    --color-gray-800: oklch(27.8% .033 256.848);
+    --color-black: #101010;
+    --color-white: #fff;
+    --spacing: .25rem;
+    --text-sm: .875rem;
+    --text-sm--line-height: calc(1.25 / .875);
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --leading-snug: 1.375;
+    --radius-xs: .125rem;
+    --radius-sm: .25rem;
+    --radius-md: .375rem;
+    --radius-lg: .5rem;
+    --radius-xl: .75rem;
+    --radius-2xl: 1rem;
+    --blur-md: 12px;
+    --default-transition-duration: .15s;
+    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
+    --default-font-family: var(--font-sans);
+    --default-mono-font-family: var(--font-mono);
+    --font-fornire: "fornire-light",Arial,sans-serif;
+    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
+    --color-gray-dark: #6a6a6a;
+    --color-gray-light: #9c9c9c;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    -webkit-tap-highlight-color: transparent;
+    font: inherit;
+    font-feature-settings: inherit;
+    font-variation-settings: inherit;
+    letter-spacing: inherit;
+    color: inherit;
+    font-weight: 500;
+    box-sizing: border-box;
+    border: 0 solid;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 1.5vh;
+    width: 1.5vh;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-xs);
+    border-style: var(--tw-border-style);
+    border-width: 1px;
+    border-color: currentColor;
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+
+/* Smaller screens: stacked title, tighter padding */
+@media (max-width: 900px) {
+    main {
+        padding: 1.5rem 1rem 2rem;
+        gap: 1.5rem;
+    }
+
+    .alphaBlock {
+        width: auto;
+        margin: 1.25rem 1rem 0;
+    }
+
+    .pageHeader {
+        padding: 15px 1rem;
+    }
+
+    .pageTitle {
+        white-space: normal;
+        line-height: 1;
+    }
+
+    .titleCourse,
+    .titleName {
+        display: block;
+    }
+
+    .titleCourse {
+        font-size: 13vw;
+    }
+
+    .titleName {
+        font-size: 6.8vw;
+    }
+
+    .alphaHeading {
+        font-size: 2.5rem;
+        white-space: normal;
+    }
+
+    .media {
+        border-radius: 18px;
+    }
+
+    .sectionBody {
+        padding: 0 8px;
+    }
+}
