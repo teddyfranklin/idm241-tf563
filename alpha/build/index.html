@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microinteraction Analysis</title>
+    <title>Microinteraction Alpha Build</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
@@ -29,13 +29,7 @@
                 </div>
             </section>
             
-            <div><button class="demoButton">30s left</button></div>
-
-            <button class="settingButtonPassive h-10 xl:h-[2vw] px-4 xl:px-[1vw] flex items-center gap-2 xl:gap-[0.5vw]
-                                        " tabindex="0" style="transform: none;"><div class="settingButtonPassiveBox w-[1.5vh] xl:w-[0.7vw] h-[1.5vh] xl:h-[0.7vw] border border-current rounded-xs flex items-center justify-center"></div>1m left</button>
-
-            <button class="settingButtonActive h-10 xl:h-[2vw] px-4 xl:px-[1vw] flex items-center gap-2 xl:gap-[0.5vw]
-                                        setting-button-active" tabindex="0" style="transform: none;"><div class="settingButtonActiveBox -[1.5vh] xl:w-[0.7vw] h-[1.5vh] xl:h-[0.7vw] border border-current rounded-xs flex items-center justify-center"><div class="w-[0.75vh] xl:w-[0.35vw] h-[0.75vh] xl:h-[0.35vw] bg-current"></div></div>1m left</button>
+            <div class="demoButtonWrap"><button class="demoButton" type="button" aria-pressed="false"><span class="demoButtonBox" aria-hidden="true"><span class="demoButtonFill"></span></span>30s left</button></div>
 
         <div class="writing">
 
@@ -125,5 +119,6 @@
             </section>
         </div>
     </main>
+    <script src="/alpha/build/assets/script.js"></script>
 </body>
 </html>

@@ -238,12 +238,19 @@ a {
     object-fit: cover;
 }
 
+/* Centers the demo button within its section */
+.demoButtonWrap {
+    display: flex;
+    justify-content: center;
+}
+
 .demoButton {
     display: inline-flex;
     box-sizing: border-box;
     width: fit-content;
     height: 4vh;
     margin-bottom: 2rem;
+    margin-top: 2rem;
     color: #000000;
     background-color: #efefef;
     opacity: 1;
@@ -252,260 +259,69 @@ a {
     justify-content: center;
     padding: 0 1.25vh;
     font: inherit;
+    font-weight: 500;
+    gap: 0.5rem;
     border-radius: 999px;
-    transform: none;
-}
-
-.settingButtonPassive {
-    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --color-red-500: oklch(63.7% .237 25.331);
-    --color-gray-100: oklch(96.7% .003 264.542);
-    --color-gray-200: oklch(92.8% .006 264.531);
-    --color-gray-300: oklch(87.2% .01 258.338);
-    --color-gray-800: oklch(27.8% .033 256.848);
-    --color-black: #101010;
-    --color-white: #fff;
-    --spacing: .25rem;
-    --text-sm: .875rem;
-    --text-sm--line-height: calc(1.25 / .875);
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --leading-snug: 1.375;
-    --radius-xs: .125rem;
-    --radius-sm: .25rem;
-    --radius-md: .375rem;
-    --radius-lg: .5rem;
-    --radius-xl: .75rem;
-    --radius-2xl: 1rem;
-    --blur-md: 12px;
-    --default-transition-duration: .15s;
-    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
-    --default-font-family: var(--font-sans);
-    --default-mono-font-family: var(--font-mono);
-    --font-fornire: "fornire-light",Arial,sans-serif;
-    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
-    --color-gray-dark: #6a6a6a;
-    --color-gray-light: #9c9c9c;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    -webkit-tap-highlight-color: transparent;
-    box-sizing: border-box;
-    margin: 0;
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    opacity: 1;
-    appearance: button;
-    gap: calc(var(--spacing) * 2);
-    padding-inline: calc(var(--spacing) * 4);
+    cursor: pointer;
     user-select: none;
-    -webkit-user-drag: none;
-    background-color: #efefef;
-    border: none;
-    border-radius: 9999px;
-    outline: none;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    font-weight: 500;
-    transition: all .2s ease-out;
-    display: inline-flex;
-    height: 4vh;
-    padding: 0 1.25vh;
+    -webkit-tap-highlight-color: transparent;
     transform: none;
+    /* 200ms ease-out for colour/opacity; transform uses a springy curve so the squish bounces back */
+    transition: background-color 0.2s ease-out, color 0.2s ease-out, opacity 0.2s ease-out,
+        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.settingButtonPassiveBox {
-    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --color-red-500: oklch(63.7% .237 25.331);
-    --color-gray-100: oklch(96.7% .003 264.542);
-    --color-gray-200: oklch(92.8% .006 264.531);
-    --color-gray-300: oklch(87.2% .01 258.338);
-    --color-gray-800: oklch(27.8% .033 256.848);
-    --color-black: #101010;
-    --color-white: #fff;
-    --spacing: .25rem;
-    --text-sm: .875rem;
-    --text-sm--line-height: calc(1.25 / .875);
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --leading-snug: 1.375;
-    --radius-xs: .125rem;
-    --radius-sm: .25rem;
-    --radius-md: .375rem;
-    --radius-lg: .5rem;
-    --radius-xl: .75rem;
-    --radius-2xl: 1rem;
-    --blur-md: 12px;
-    --default-transition-duration: .15s;
-    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
-    --default-font-family: var(--font-sans);
-    --default-mono-font-family: var(--font-mono);
-    --font-fornire: "fornire-light",Arial,sans-serif;
-    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
-    --color-gray-dark: #6a6a6a;
-    --color-gray-light: #9c9c9c;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    -webkit-tap-highlight-color: transparent;
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    font-weight: 500;
-    box-sizing: border-box;
-    border: 0 solid;
-    margin: 0;
-    padding: 0;
+/* Hover: grey darkens from #efefef to #dddddd */
+.demoButton:hover {
+    background-color: #dddddd;
+}
+
+/* Click: squish to .84 while pressed */
+.demoButton:active {
+    transform: scale(0.84);
+    transition: background-color 0.2s ease-out, color 0.2s ease-out, opacity 0.2s ease-out,
+        transform 0.1s ease-out;
+}
+
+/* Active (selected) state: black button, white text */
+.demoButton.isActive {
+    background-color: #101010;
+    color: #ffffff;
+}
+
+/* Hovering the active button drops it to 80% opacity */
+.demoButton.isActive:hover {
+    opacity: 0.8;
+}
+
+.demoButton:focus-visible {
+    outline: 2px solid #101010;
+    outline-offset: 3px;
+}
+
+/* Checkbox square to the left of the label */
+.demoButtonBox {
     display: flex;
-    height: 1.5vh;
+    box-sizing: border-box;
     width: 1.5vh;
+    height: 1.5vh;
     align-items: center;
     justify-content: center;
-    border-radius: var(--radius-xs);
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-    border-color: currentColor;
-    user-select: none;
-    -webkit-user-drag: none;
+    border: 1px solid currentColor;
+    border-radius: 0.125rem;
 }
 
-.settingButtonActive {
-    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --color-red-500: oklch(63.7% .237 25.331);
-    --color-gray-100: oklch(96.7% .003 264.542);
-    --color-gray-200: oklch(92.8% .006 264.531);
-    --color-gray-300: oklch(87.2% .01 258.338);
-    --color-gray-800: oklch(27.8% .033 256.848);
-    --color-black: #101010;
-    --color-white: #fff;
-    --spacing: .25rem;
-    --text-sm: .875rem;
-    --text-sm--line-height: calc(1.25 / .875);
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --leading-snug: 1.375;
-    --radius-xs: .125rem;
-    --radius-sm: .25rem;
-    --radius-md: .375rem;
-    --radius-lg: .5rem;
-    --radius-xl: .75rem;
-    --radius-2xl: 1rem;
-    --blur-md: 12px;
-    --default-transition-duration: .15s;
-    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
-    --default-font-family: var(--font-sans);
-    --default-mono-font-family: var(--font-mono);
-    --font-fornire: "fornire-light",Arial,sans-serif;
-    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
-    --color-gray-dark: #6a6a6a;
-    --color-gray-light: #9c9c9c;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    -webkit-tap-highlight-color: transparent;
-    box-sizing: border-box;
-    margin: 0;
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
+/* Inner square that fills the checkbox when active */
+.demoButtonFill {
+    width: 0.75vh;
+    height: 0.75vh;
+    background-color: currentColor;
+    opacity: 0;
+}
+
+.demoButton.isActive .demoButtonFill {
     opacity: 1;
-    appearance: button;
-    gap: calc(var(--spacing) * 2);
-    padding-inline: calc(var(--spacing) * 4);
-    user-select: none;
-    -webkit-user-drag: none;
-    border: none;
-    border-radius: 9999px;
-    outline: none;
-    justify-content: center;
-    align-items: center;
-    width: fit-content;
-    font-weight: 500;
-    transition: all .2s ease-out;
-    display: inline-flex;
-    background-color: var(--color-black);
-    color: var(--color-white);
-    height: 4vh;
-    padding: 0 1.25vh;
-    transform: none;
 }
-
-.settingButtonActiveBox {
-    --font-sans: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    --font-mono: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
-    --color-red-500: oklch(63.7% .237 25.331);
-    --color-gray-100: oklch(96.7% .003 264.542);
-    --color-gray-200: oklch(92.8% .006 264.531);
-    --color-gray-300: oklch(87.2% .01 258.338);
-    --color-gray-800: oklch(27.8% .033 256.848);
-    --color-black: #101010;
-    --color-white: #fff;
-    --spacing: .25rem;
-    --text-sm: .875rem;
-    --text-sm--line-height: calc(1.25 / .875);
-    --font-weight-light: 300;
-    --font-weight-normal: 400;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --leading-snug: 1.375;
-    --radius-xs: .125rem;
-    --radius-sm: .25rem;
-    --radius-md: .375rem;
-    --radius-lg: .5rem;
-    --radius-xl: .75rem;
-    --radius-2xl: 1rem;
-    --blur-md: 12px;
-    --default-transition-duration: .15s;
-    --default-transition-timing-function: cubic-bezier(.4,0,.2,1);
-    --default-font-family: var(--font-sans);
-    --default-mono-font-family: var(--font-mono);
-    --font-fornire: "fornire-light",Arial,sans-serif;
-    --font-neue-haas: "neue-haas-grotesk-display",Arial,sans-serif;
-    --color-gray-dark: #6a6a6a;
-    --color-gray-light: #9c9c9c;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    -webkit-tap-highlight-color: transparent;
-    font: inherit;
-    font-feature-settings: inherit;
-    font-variation-settings: inherit;
-    letter-spacing: inherit;
-    color: inherit;
-    font-weight: 500;
-    box-sizing: border-box;
-    border: 0 solid;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    height: 1.5vh;
-    width: 1.5vh;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-xs);
-    border-style: var(--tw-border-style);
-    border-width: 1px;
-    border-color: currentColor;
-    user-select: none;
-    -webkit-user-drag: none;
-}
-
 
 /* Smaller screens: stacked title, tighter padding */
 @media (max-width: 900px) {
