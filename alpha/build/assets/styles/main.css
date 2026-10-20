@@ -266,6 +266,8 @@ a {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     transform: none;
+    /* keep the button on its own layer so the checkbox doesn't re-snap when transitions end */
+    will-change: transform;
     /* 200ms ease-out for colour/opacity; transform uses a springy curve so the squish bounces back */
     transition: background-color 0.2s ease-out, color 0.2s ease-out, opacity 0.2s ease-out,
         transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -303,8 +305,10 @@ a {
 .demoButtonBox {
     display: flex;
     box-sizing: border-box;
-    width: 1.5vh;
-    height: 1.5vh;
+    /* rounded to even whole pixels so the box and fill stay crisp and centred */
+    width: round(1.5vh, 2px);
+    height: round(1.5vh, 2px);
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     border: 1px solid currentColor;
@@ -313,8 +317,8 @@ a {
 
 /* Inner square that fills the checkbox when active */
 .demoButtonFill {
-    width: 0.75vh;
-    height: 0.75vh;
+    width: round(0.75vh, 2px);
+    height: round(0.75vh, 2px);
     background-color: currentColor;
     opacity: 0;
 }
