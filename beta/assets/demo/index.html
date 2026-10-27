@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microinteraction Beta Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Lets the start button's fill position animate smoothly */
+        @property --fill {
+            syntax: '<percentage>';
+            inherits: true;
+            initial-value: 0%;
+        }
+
+        :root {
+            --color-black: #000000;
+            --color-white: #ffffff;
+            --color-purple: #7675a0;
+            --color-highlight: #969bff;
+            --border: 3.283px solid var(--color-black);
+            --demo-font: 'Merriweather Sans', Tahoma, Verdana, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            padding: 3rem;
+            background: var(--color-white);
+            font-family: var(--demo-font);
+        }
+
+        .demoRow {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 4rem;
+        }
+
+        /* Placeholder content so the open dropdown visibly covers what's below it */
+        .coveredContent {
+            width: 382px;
+            color: #555555;
+            line-height: 1.5;
+        }
+
+        /* ---------- Category selection dropdown ---------- */
+        .categorySelect {
+            position: relative;
+            width: 382.46px;
+            font-size: 26.263px;
+            letter-spacing: 0.5253px;
+        }
+
+        .categoryButton {
+            display: flex;
+            box-sizing: border-box;
+            width: 100%;
+            height: 59.093px;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 13.13px;
+            border: var(--border);
+            background-color: var(--color-white);
+            color: var(--color-black);
+            font: inherit;
+            letter-spacing: inherit;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+        }
+
+        /* Chevron: black and white copies crossfade so the colour change matches the text */
+        .chevron {
+            position: relative;
+            width: 15px;
+            height: 10px;
+            flex-shrink: 0;
+            transition: transform 400ms ease-in-out;
+        }
+
+        .chevron img {
+            position: absolute;
+            inset: 0;
+            transition: opacity 400ms ease-in-out;
+        }
+
+        .chevronWhite {
+            opacity: 0;
+        }
+
+        .categoryMenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            z-index: 10;
+            display: none;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0;
+            padding: 10px 0 20px;
+            list-style: none;
+            border: var(--border);
+            border-top: none;
+            background-color: var(--color-white);
+            transition: background-color 400ms ease-in-out;
+        }
+
+        .categorySelect.isOpen .categoryMenu {
+            display: block;
+        }
+
+        .categoryOption {
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px 13.13px;
+            border: none;
+            background: none;
+            color: var(--color-black);
+            font: inherit;
+            letter-spacing: inherit;
+            text-align: left;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: color 400ms ease-in-out;
+        }
+
+        /* Hover on: black fill, white text and chevron */
+        .categorySelect:hover .categoryButton,
+        .categorySelect:hover .categoryMenu {
+            background-color: var(--color-black);
+            color: var(--color-white);
+        }
+
+        .categorySelect:hover .chevronWhite {
+            opacity: 1;
+        }
+
+        .categorySelect:hover .chevronBlack {
+            opacity: 0;
+        }
+
+        .categorySelect:hover .categoryOption {
+            color: var(--color-white);
+        }
+
+        /* Hovered option inside the open menu turns lavender */
+        .categorySelect:hover .categoryOption:hover,
+        .categorySelect:hover .categoryOption:focus-visible {
+            color: var(--color-highlight);
+        }
+
+        /* Open: chevron flips 180 degrees */
+        .categorySelect.isOpen .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* ---------- Start session button ---------- */
+        .startButton {
+            --fill: 0%;
+            display: block;
+            box-sizing: border-box;
+            width: 846.993px;
+            height: 106.695px;
+            padding: 0;
+            border: var(--border);
+            /* Purple sweeps in from the left with a soft leading edge */
+            background: linear-gradient(90deg,
+                var(--color-purple) calc(var(--fill) - 20%),
+                var(--color-white) var(--fill));
+            font-family: var(--demo-font);
+            font-size: 26.263px;
+            letter-spacing: 0.5253px;
+            cursor: pointer;
+            transition: --fill 900ms ease-in-out, transform 150ms ease-out;
+        }
+
+        /* Text spans the full button so its white/black split lines up with the fill edge */
+        .startLabel {
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: transparent;
+            background: linear-gradient(90deg,
+                var(--color-white) calc(var(--fill) - 10%),
+                var(--color-black) calc(var(--fill) - 10%));
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .startButton:hover,
+        .startButton:focus-visible {
+            --fill: 120%;
+        }
+
+        /* Holding click squishes to .8, releasing springs back to 1 */
+        .startButton:active {
+            transform: scale(0.8);
+        }
+
+        .sessionScreen {
+            display: none;
+        }
+
+        body.sessionStarted .dashboard {
+            display: none;
+        }
+
+        body.sessionStarted .sessionScreen {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Microinteraction Demo</h1>
+
+        <section class="demoRow" aria-labelledby="categoryDemoHeading">
+            <h2 id="categoryDemoHeading">Category Selection</h2>
+            <div class="categorySelect">
+                <button class="categoryButton" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="categoryLabel">Select a category filter</span>
+                    <span class="chevron" aria-hidden="true">
+                        <img class="chevronBlack" src="/beta/assets/demo/icons/chevron-black.svg" width="15" height="10" alt="">
+                        <img class="chevronWhite" src="/beta/assets/demo/icons/chevron-white.svg" width="15" height="10" alt="">
+                    </span>
+                </button>
+                <ul class="categoryMenu" role="listbox">
+                    <li><button class="categoryOption" type="button" role="option">Quality images</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Picture of the day</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Featured picture candidates</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Featured pictures</button></li>
+                </ul>
+            </div>
+            <p class="coveredContent">This content sits below the dropdown. Opening the menu covers it.</p>
+        </section>
+
+        <section class="demoRow" aria-labelledby="startDemoHeading">
+            <h2 id="startDemoHeading">Start Session</h2>
+            <button class="startButton" type="button"><span class="startLabel">Start session</span></button>
+        </section>
+    </div>
+
+    <div class="sessionScreen">
+        <h1>Image Display Page</h1>
+        <p>Placeholder for the drawing session. <button class="backButton" type="button">Back to dashboard</button></p>
+    </div>
+
+    <script>
+        // Category dropdown: opens instantly, chevron rotates, picking an option sets the filter and closes
+        const categorySelect = document.querySelector('.categorySelect');
+        const categoryButton = categorySelect.querySelector('.categoryButton');
+        const categoryLabel = categorySelect.querySelector('.categoryLabel');
+
+        function setOpen(isOpen) {
+            categorySelect.classList.toggle('isOpen', isOpen);
+            categoryButton.setAttribute('aria-expanded', isOpen);
+        }
+
+        categoryButton.addEventListener('click', () => {
+            setOpen(!categorySelect.classList.contains('isOpen'));
+        });
+
+        categorySelect.querySelectorAll('.categoryOption').forEach((option) => {
+            option.addEventListener('click', () => {
+                categoryLabel.textContent = option.textContent;
+                setOpen(false);
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!categorySelect.contains(event.target)) {
+                setOpen(false);
+            }
+        });
+
+        // Start session: once the press is released and the spring-back finishes, switch to the image page
+        document.querySelector('.startButton').addEventListener('click', () => {
+            setTimeout(() => document.body.classList.add('sessionStarted'), 250);
+        });
+
+        document.querySelector('.backButton').addEventListener('click', () => {
+            document.body.classList.remove('sessionStarted');
+        });
+    </script>
+</body>
+</html>
