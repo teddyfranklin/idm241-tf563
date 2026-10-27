@@ -31,7 +31,7 @@
             </section>
 
             <section class="locateSection" aria-labelledby="locateHeading">
-                <h2 class="sectionHeading" id="locateHeading" tabindex="0">Time left buttons</h2>
+                <h2 class="sectionHeading" id="locateHeading" tabindex="0">Form Locations</h2>
                 <div class="sectionBody">
                     <p class="locateText">The category selection button is the second button down in the "category selection section." It is located on the left side of the form fields. </p>
                     <p class="locateText">The start session button is the largest button of all the form fields. It is located at the bottom of all the buttons and is the largest button on the screen. </p>
@@ -43,74 +43,132 @@
                 <h2 class="sectionHeading" id="triggersHeading" tabindex="0">Triggers</h2>
                 <div class="sectionBody">
                     <h3 class="categorySelectionTriggers">Category Selection Triggers</h3>
-                    <p class="triggersText">Click on:</p>
-                    <p class="triggersText">Click off:</p>
                     <p class="triggersText">Hover on:</p>
                     <p class="triggersText">Hover off:</p>
+                    <p class="triggersText">Click on:</p>
+                    <p class="triggersText">Click off:</p>
+                </div>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Start Session Triggers</h3>
+                    <p class="triggersText">Hover on:</p>
+                    <p class="triggersText">Hover off:</p>
+                    <p class="triggersText">Click on:</p>
                 </div>
             </section>
 
             <section class="rulesSection" aria-labelledby="rulesHeading">
-                <h2 class="sectionHeading" id="rulesHeading" tabindex="0">Rules</h2>
+                <h2 class="sectionHeading" id="rulesHeading" tabindex="0"> Category Selection Rules</h2>
                 <div class="sectionBody">
                     <h3 class="ruleOneHeading">Hover</h3>
                     <h4 class="clickState">On</h4>
                     <ul class="hoverList">
-                        <li>Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
-                        <li>While the button is dark from being clicked, hovering over the active button lowers its opacity to 80%.</li>
+                        <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
+                        <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
+                        <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
                     </ul>
                     <h4 class="clickState">Off</h4>
                     <ul class="hoverList">
-                        <li>Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
+                        <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
+                        <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
+                        <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
                     </ul>
                     <h3 class="ruleTwoHeading">Click</h3>
                     <h4 class="clickState">On</h4>
                     <ul class="clickList">
-                        <li>Sets the background color from #efefef to #000000</li>
-                        <li>Sets the text color from to #000000 to #ffffff</li>
-                        <li>Fills the checkbox square to the left of the button content text with a smaller square</li>
-                        <li>Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
-                        <li>User will now hear an audio effect at the selected time interval during their drawing session</li>
+                        <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                        <li>Clicking an option in the opened dropdown menu changes the content filter for the image search algorithm.</li>
+                        <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
                     </ul>
                     <h4 class="clickState">Off</h4>
                     <ul class="clickList">
-                        <li>Changes the background color from #000000 to #efefef</li>
-                        <li>Sets the text color from #ffffff to #000000</li>
-                        <li>Unfills the checkbox square to the left of the button content text</li>
-                        <li>Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                       <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
+                       <li>Clicking a menu option closes the dropdown menu.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="rulesSection" aria-labelledby="rulesHeading">
+                <h2 class="sectionHeading" id="rulesHeading" tabindex="0">Start Session Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="hoverList">
+                        <li>Hovering over the start session button slowly fills the background color from #ffffff to #7675A0 in a gradient from left to right.</li>
+                        <li>The text that is in front of the #7675A0 background turns from #000000 to #ffffff.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="hoverList">
+                        <li>The background fill reverses its gradient from right to left.</li>
+                        <li>The text that is in front of the #ffffff background turns from #ffffff to #000000 as the background color changes behind it.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>Holding click on the start session button transforms the scale by .8</li>
+                        <li>Releasing the click on the start session changes the scale from .8 back to 1.</li>
+                        <li>When click is completed, the page changes from the dashboard to the image display page.</li>
                     </ul>
                 </div>
             </section>
 
             <section class="feedbackSection" aria-labelledby="feedbackHeading">
-                <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Feedback</h2>
+                <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Category Selection Feedback</h2>
                 <div class="sectionBody">
                     <h3 class="feedbackSeesHeading">Visual</h3>
                     <div class="feedbackSees">
                         <h4 class="feedbackGroup">Hover</h4>
                         <h5 class="clickState">On</h5>
                         <ul class="feedbackHoverList">
-                            <li>Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
+                            <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
+                            <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
+                            <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
                         </ul>
                         <h5 class="clickState">Off</h5>
                         <ul class="feedbackHoverList">
-                            <li>Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
+                            <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
+                            <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
+                            <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
                         </ul>
                         <h4 class="feedbackGroup">Click</h4>
                         <h5 class="clickState">On</h5>
                         <ul class="feedbackClickList">
-                            <li>Sets the background color from #efefef to #000000</li>
-                            <li>Sets the text color from to #000000 to #ffffff</li>
-                            <li>Fills the checkbox square to the left of the button content text with a smaller square</li>
-                            <li>Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                            <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                            <li>Clicking an option in the opened dropdown menu changes the content filter for the image search algorithm.</li>
+                            <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
                         </ul>
                         <h5 class="clickState">Off</h5>
                         <ul class="feedbackClickList">
-                            <li>Changes the background color from #000000 to #efefef</li>
-                            <li>Sets the text color from #ffffff to #000000</li>
-                            <li>Unfills the checkbox square to the left of the button content text</li>
-                            <li>Squishes the button's boundaries by transforming the scale to a minimum of .84</li>
+                            <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
+                            <li>Clicking a menu option closes the dropdown menu.</li>
                         </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedbackSection" aria-labelledby="feedbackHeading">
+                <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Start Session Feedback</h2>
+                <div class="sectionBody">
+                    <h3 class="feedbackSeesHeading">Visual</h3>
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>Hovering over the start session button slowly fills the background color from #ffffff to #7675A0 in a gradient from left to right.</li>
+                            <li>The text that is in front of the #7675A0 background turns from #000000 to #ffffff.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackHoverList">
+                            <li>The background fill reverses its gradient from right to left.</li>
+                            <li>The text that is in front of the #ffffff background turns from #ffffff to #000000 as the background color changes behind it.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>Holding click on the start session button transforms the scale by .8</li>
+                            <li>Releasing the click on the start session changes the scale from .8 back to 1.</li>
+                            <li>When click is completed, the page changes from the dashboard to the image display page.</li>
+                        </ul>
+
                     </div>
                 </div>
             </section>
