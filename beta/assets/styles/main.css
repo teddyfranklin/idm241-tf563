@@ -212,6 +212,13 @@ a {
     object-position: left center;
 }
 
+/* Screen recordings keep their own proportions */
+.assetList video {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .assetList li::marker {
     content: none;
 }
