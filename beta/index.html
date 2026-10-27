@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microinteraction Beta Build</title>
+    <title>Microinteraction Analysis</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/beta/assets/styles/main.css">
+    <link rel="stylesheet" href="beta/assets/styles/main.css">
 </head>
 <body>
     <a href="#interfaceHeading" class="skip">skip to content</a>
@@ -17,23 +17,36 @@
     </header>
 
     <div class="alphaBlock">
-        <h2 class="alphaHeading">Beta Build</h2>
+        <h2 class="alphaHeading">Beta Description</h2>
     </div>
 
     <main>
-        <div class="demo">
-            
-            <div class="demoButtonWrap"><button class="demoButton" type="button" aria-pressed="false"><span class="demoButtonBox" aria-hidden="true"><span class="demoButtonFill"></span></span>30s left</button></div>
-
         <div class="writing">
+            <section class="interfaceSection" aria-labelledby="interfaceHeading">
+                <h2 class="sectionHeading" id="interfaceHeading" tabindex="0">Original Interface</h2>
+                <div class="sectionBody">
+                    <p class="interfaceText">WikiartRef is a web application that allows users to query categories from the wikimedia commons to be randomly selected and displayed in timed intervals. The user then draws the images within the alloted time as a means to practice their drawing skills. </p>
+                    <a class="interfaceLink" href="https://artgrind.art/setup" target="_blank">Original interface URL</a>
+                </div>
+            </section>
+
+            <section class="locateSection" aria-labelledby="locateHeading">
+                <h2 class="sectionHeading" id="locateHeading" tabindex="0">Time left buttons</h2>
+                <div class="sectionBody">
+                    <p class="locateText">The category selection button is the second button down in the "category selection section." It is located on the left side of the form fields. </p>
+                    <p class="locateText">The start session button is the largest button of all the form fields. It is located at the bottom of all the buttons and is the largest button on the screen. </p>
+                    
+                </div>
+            </section>
 
             <section class="triggersSection" aria-labelledby="triggersHeading">
                 <h2 class="sectionHeading" id="triggersHeading" tabindex="0">Triggers</h2>
                 <div class="sectionBody">
-                    <p class="triggersText">Hover on:</p>
-                    <p class="triggersText">Hover off:</p>
+                    <h3 class="categorySelectionTriggers">Category Selection Triggers</h3>
                     <p class="triggersText">Click on:</p>
                     <p class="triggersText">Click off:</p>
+                    <p class="triggersText">Hover on:</p>
+                    <p class="triggersText">Hover off:</p>
                 </div>
             </section>
 
@@ -45,12 +58,10 @@
                     <ul class="hoverList">
                         <li>Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
                         <li>While the button is dark from being clicked, hovering over the active button lowers its opacity to 80%.</li>
-                        <li>Hovering over the button changes the cursor to a hand.</li>
                     </ul>
                     <h4 class="clickState">Off</h4>
                     <ul class="hoverList">
                         <li>Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
-                        <li>Hovering over the button changes the cursor to a hand.</li>
                     </ul>
                     <h3 class="ruleTwoHeading">Click</h3>
                     <h4 class="clickState">On</h4>
@@ -80,13 +91,10 @@
                         <h5 class="clickState">On</h5>
                         <ul class="feedbackHoverList">
                             <li>Darkens the background color grey from #efefef to #DDDDDD using a 200 ms ease out transition</li>
-                            <li>While the button is dark from being clicked, hovering over the active button lowers its opacity to 80%.</li>
-                            <li>Hovering over the button changes the cursor to a hand.</li>
                         </ul>
                         <h5 class="clickState">Off</h5>
                         <ul class="feedbackHoverList">
                             <li>Lightens the background color grey from #DDDDDD to #efefef using a 200 ms ease out transition</li>
-                            <li>Hovering over the button changes the cursor to a hand.</li>
                         </ul>
                         <h4 class="feedbackGroup">Click</h4>
                         <h5 class="clickState">On</h5>
@@ -117,7 +125,46 @@
                 </div>
             </section>
         </div>
+
+        <div class="aside">
+            <section class="visualsSection" aria-labelledby="visualsHeading">
+                <h2 class="assetsHeading" id="visualsHeading" tabindex="0">Assets</h2>
+                <div class="sectionBody">
+                    <div class="media">
+                        <img src="assets/images/artGrindDemo.gif" alt="gif of site demo">
+                    </div>
+                    <h3 class="assetsSubheading">Visualization</h3>
+                    <p class="visualsText">Static images showing each state of the existing microinteraction.</p>
+                    <ul class="assetList">
+                        <li>
+                            <p>Initial state: all chime buttons rest in light grey with empty checkboxes.</p>
+                            <img src="assets/images/initial%20state.png" alt="Chime buttons with none selected">
+                        </li>
+                        <li>
+                            <p>Initial hover: the hovered button darkens from #efefef to #DDDDDD.</p>
+                            <img src="assets/images/initial%20hover.png" alt="Cursor hovering the 30s left button, which is slightly darker grey">
+                        </li>
+                        <li>
+                            <p>Initial click animation: the button squishes toward a .84 scale as it is pressed.</p>
+                            <img src="assets/images/initial%20click%20animation.png" alt="30s left button squished smaller mid-click">
+                        </li>
+                        <li>
+                            <p>Active state: the selected button turns black with white text and a filled checkbox.</p>
+                            <img src="assets/images/active%20state.png" alt="30s left button selected, black with white text and a filled checkbox">
+                        </li>
+                        <li>
+                            <p>Active hover: hovering the selected button lowers its opacity to 80%.</p>
+                            <img src="assets/images/active%20hover.png" alt="Cursor hovering the selected 30s left button, which is dark grey">
+                        </li>
+                        <li>
+                            <p>Active click animation: the button squishes again as it is clicked off.</p>
+                            <img src="assets/images/active%20click%20animation.png" alt="Selected 30s left button squished smaller mid-click">
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </div>
     </main>
-    <script src="/beta/assets/script.js"></script>
+
 </body>
 </html>
