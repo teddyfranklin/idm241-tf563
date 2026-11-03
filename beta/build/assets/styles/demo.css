@@ -1,0 +1,182 @@
+/* Lets the start button's fill position animate smoothly */
+@property --fill {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 0%;
+}
+
+:root {
+    --demo-black: #000000;
+    --demo-white: #ffffff;
+    --demo-purple: #7675a0;
+    --demo-highlight: #969bff;
+    --demo-border: 3.283px solid var(--demo-black);
+    --demo-font: 'Merriweather Sans', Tahoma, Verdana, sans-serif;
+}
+
+/* Both demo buttons stacked and centred at the top of the page */
+.demoButtons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    margin: 1rem 0 2rem;
+    font-family: var(--demo-font);
+    font-size: 26.263px;
+    letter-spacing: 0.5253px;
+}
+
+/* ---------- Category selection dropdown ---------- */
+.categorySelect {
+    position: relative;
+    width: 382.46px;
+    max-width: 100%;
+}
+
+.categoryButton {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    height: 59.093px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 13.13px;
+    border: var(--demo-border);
+    background-color: var(--demo-white);
+    color: var(--demo-black);
+    font: inherit;
+    letter-spacing: inherit;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
+}
+
+/* Chevron: black and white copies crossfade so the colour change matches the text */
+.chevron {
+    position: relative;
+    width: 15px;
+    height: 10px;
+    flex-shrink: 0;
+    transition: transform 400ms ease-in-out;
+}
+
+.chevron img {
+    position: absolute;
+    inset: 0;
+    transition: opacity 400ms ease-in-out;
+}
+
+.chevronWhite {
+    opacity: 0;
+}
+
+/* Menu overlays whatever sits below the dropdown */
+.categoryMenu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+    display: none;
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+    padding: 10px 0 20px;
+    list-style: none;
+    border: var(--demo-border);
+    border-top: none;
+    background-color: var(--demo-white);
+    transition: background-color 400ms ease-in-out;
+}
+
+.categorySelect.isOpen .categoryMenu {
+    display: block;
+}
+
+.categoryOption {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 13.13px;
+    border: none;
+    background: none;
+    color: var(--demo-black);
+    font: inherit;
+    letter-spacing: inherit;
+    text-align: left;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: color 400ms ease-in-out;
+}
+
+/* Hover on: black fill, white text and chevron */
+.categorySelect:hover .categoryButton,
+.categorySelect:hover .categoryMenu {
+    background-color: var(--demo-black);
+    color: var(--demo-white);
+}
+
+.categorySelect:hover .chevronWhite {
+    opacity: 1;
+}
+
+.categorySelect:hover .chevronBlack {
+    opacity: 0;
+}
+
+.categorySelect:hover .categoryOption {
+    color: var(--demo-white);
+}
+
+/* Hovered option inside the open menu turns lavender */
+.categorySelect:hover .categoryOption:hover,
+.categorySelect:hover .categoryOption:focus-visible {
+    color: var(--demo-highlight);
+}
+
+/* Open: chevron flips 180 degrees */
+.categorySelect.isOpen .chevron {
+    transform: rotate(180deg);
+}
+
+/* ---------- Start session button ---------- */
+.startButton {
+    --fill: 0%;
+    display: block;
+    box-sizing: border-box;
+    width: 846.993px;
+    max-width: 100%;
+    height: 106.695px;
+    padding: 0;
+    border: var(--demo-border);
+    /* Purple sweeps in from the left with a soft leading edge */
+    background: linear-gradient(90deg,
+        var(--demo-purple) calc(var(--fill) - 20%),
+        var(--demo-white) var(--fill));
+    font: inherit;
+    letter-spacing: inherit;
+    cursor: pointer;
+    transition: --fill 900ms ease-in-out, transform 150ms ease-out;
+}
+
+/* Text spans the full button so its white/black split lines up with the fill edge */
+.startLabel {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: transparent;
+    background: linear-gradient(90deg,
+        var(--demo-white) calc(var(--fill) - 10%),
+        var(--demo-black) calc(var(--fill) - 10%));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.startButton:hover,
+.startButton:focus-visible {
+    --fill: 120%;
+}
+
+/* Holding click squishes to .8, releasing springs back to 1 */
+.startButton:active {
+    transform: scale(0.8);
+}

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microinteraction Analysis</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700&family=Merriweather+Sans:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/beta/assets/styles/main.css">
+    <link rel="stylesheet" href="/beta/build/assets/styles/demo.css">
+</head>
+<body>
+    <a href="#interfaceHeading" class="skip">skip to content</a>
+
+    <header class="pageHeader">
+        <h1 class="pageTitle"><span class="titleCourse">UXID-241:</span> <span class="titleName">MICROINTERACTIONS</span></h1>
+    </header>
+
+    <div class="alphaBlock">
+        <h2 class="alphaHeading">Beta Build</h2>
+    </div>
+
+    <main>
+        <div class="demoButtons">
+            <div class="categorySelect">
+                <button class="categoryButton" type="button" aria-haspopup="listbox" aria-expanded="false">
+                    <span class="categoryLabel">Select a category filter</span>
+                    <span class="chevron" aria-hidden="true">
+                        <img class="chevronBlack" src="/beta/assets/demo/images/chevron-black.svg" width="15" height="10" alt="">
+                        <img class="chevronWhite" src="/beta/assets/demo/images/chevron-white.svg" width="15" height="10" alt="">
+                    </span>
+                </button>
+                <ul class="categoryMenu" role="listbox">
+                    <li><button class="categoryOption" type="button" role="option">Quality images</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Picture of the day</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Featured picture candidates</button></li>
+                    <li><button class="categoryOption" type="button" role="option">Featured pictures</button></li>
+                </ul>
+            </div>
+            <button class="startButton" type="button"><span class="startLabel">Start session</span></button>
+        </div>
+
+        <div class="writing">
+
+            <section class="triggersSection" aria-labelledby="triggersHeading">
+                <h2 class="sectionHeading" id="triggersHeading" tabindex="0">Triggers</h2>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Category Selection Triggers</h3>
+                    <p class="triggersText">Hover on:</p>
+                    <p class="triggersText">Hover off:</p>
+                    <p class="triggersText">Click on:</p>
+                    <p class="triggersText">Click off:</p>
+                </div>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Start Session Triggers</h3>
+                    <p class="triggersText">Hover on:</p>
+                    <p class="triggersText">Hover off:</p>
+                    <p class="triggersText">Click on:</p>
+                </div>
+            </section>
+
+            <section class="rulesSection" aria-labelledby="rulesHeading">
+                <h2 class="sectionHeading" id="rulesHeading" tabindex="0"> Category Selection Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="hoverList">
+                        <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
+                        <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
+                        <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="hoverList">
+                        <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
+                        <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
+                        <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                        <li>Clicking an option in the opened dropdown menu changes the content filter for the image search algorithm.</li>
+                        <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="clickList">
+                       <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
+                       <li>Clicking a menu option closes the dropdown menu.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="rulesSection" aria-labelledby="rulesHeading">
+                <h2 class="sectionHeading" id="rulesHeading" tabindex="0">Start Session Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="hoverList">
+                        <li>Hovering over the start session button slowly fills the background color from #ffffff to #7675A0 in a gradient from left to right.</li>
+                        <li>The text that is in front of the #7675A0 background turns from #000000 to #ffffff.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="hoverList">
+                        <li>The background fill reverses its gradient from right to left.</li>
+                        <li>The text that is in front of the #ffffff background turns from #ffffff to #000000 as the background color changes behind it.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>Holding click on the start session button transforms the scale by .8</li>
+                        <li>Releasing the click on the start session changes the scale from .8 back to 1.</li>
+                        <li>When click is completed, the page changes from the dashboard to the image display page.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="feedbackSection" aria-labelledby="feedbackHeading">
+                <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Category Selection Feedback</h2>
+                <div class="sectionBody">
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
+                            <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
+                            <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackHoverList">
+                            <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
+                            <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
+                            <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                            <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackClickList">
+                            <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
+                            <li>Clicking a menu option closes the dropdown menu.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedbackSection" aria-labelledby="feedbackHeading">
+                <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Start Session Feedback</h2>
+                <div class="sectionBody">
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>Hovering over the start session button slowly fills the background color from #ffffff to #7675A0 in a gradient from left to right.</li>
+                            <li>The text that is in front of the #7675A0 background turns from #000000 to #ffffff.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackHoverList">
+                            <li>The background fill reverses its gradient from right to left.</li>
+                            <li>The text that is in front of the #ffffff background turns from #ffffff to #000000 as the background color changes behind it.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>Holding click on the start session button transforms the scale by .8</li>
+                            <li>Releasing the click on the start session changes the scale from .8 back to 1.</li>
+                        </ul>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="loopsSection" aria-labelledby="loopsHeading">
+                <h2 class="sectionHeading" id="loopsHeading" tabindex="0">Loops &amp; Modes</h2>
+                <div class="sectionBody">
+                    <h3 class="loopsSubheading">Loops</h3>
+                    <p class="loopsText">There are no loops present in the microinteraction</p>
+                    <h3 class="modesSubheading">Modes</h3>
+                    <p class="modesText">There are no modes present in the microinteraction.</p>
+                </div>
+            </section>
+        </div>
+
+    </main>
+    <script src="/beta/build/assets/script.js"></script>
+</body>
+</html>
