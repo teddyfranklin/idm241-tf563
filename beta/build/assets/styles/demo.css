@@ -51,6 +51,15 @@
     transition: background-color 400ms ease-in-out, color 400ms ease-in-out;
 }
 
+/* Long labels shrink with an ellipsis so the chevron never gets pushed out of the button */
+.categoryLabel {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-align: left;
+    text-overflow: ellipsis;
+}
+
 /* Chevron: black and white copies crossfade so the colour change matches the text */
 .chevron {
     position: relative;
@@ -76,7 +85,9 @@
     top: 100%;
     left: 0;
     z-index: 10;
-    display: none;
+    /* Closed: clipped to nothing so it can slide down/up instead of popping */
+    visibility: hidden;
+    clip-path: inset(0 0 100% 0);
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -85,11 +96,17 @@
     border: var(--demo-border);
     border-top: none;
     background-color: var(--demo-white);
-    transition: background-color 400ms ease-in-out;
+    transition: background-color 400ms ease-in-out,
+        clip-path 400ms ease-in-out,
+        visibility 0s linear 400ms;
 }
 
 .categorySelect.isOpen .categoryMenu {
-    display: block;
+    visibility: visible;
+    clip-path: inset(0);
+    transition: background-color 400ms ease-in-out,
+        clip-path 400ms ease-in-out,
+        visibility 0s;
 }
 
 .categoryOption {
@@ -104,6 +121,8 @@
     letter-spacing: inherit;
     text-align: left;
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     cursor: pointer;
     transition: color 400ms ease-in-out;
 }

@@ -46,7 +46,7 @@
             <section class="triggersSection" aria-labelledby="triggersHeading">
                 <h2 class="sectionHeading" id="triggersHeading" tabindex="0">Triggers</h2>
                 <div class="sectionBody">
-                    <h3 class="categorySelectionTriggers">Category Selection Triggers</h3>
+                    <h3 class="categorySelectionTriggers">Category Selection</h3>
                     <p class="triggersText">Hover on:</p>
                     <p class="triggersText">Hover off:</p>
                     <p class="triggersText">Click on:</p>
@@ -68,18 +68,18 @@
                     <ul class="hoverList">
                         <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
                         <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
-                        <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
+                        <li>While dropdown menu is open, hovering over a menu item changes its text from #ffffff to #969BFF over 400ms using an ease in and ease out transition.</li>
                     </ul>
                     <h4 class="clickState">Off</h4>
                     <ul class="hoverList">
                         <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
                         <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
-                        <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
+                        <li>While dropdown menu is open, moving the pointer off a menu item changes its text from #969BFF back to #ffffff over 400ms using an ease in and ease out transition.</li>
                     </ul>
                     <h3 class="ruleTwoHeading">Click</h3>
                     <h4 class="clickState">On</h4>
                     <ul class="clickList">
-                        <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                        <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. The dropdown menu slides down over 400ms using an ease in and ease out transition and covers the content below it. The menu items are Quality images, Picture of the day, Featured picture candidates, and Featured pictures.</li>
                         <li>Clicking an option in the opened dropdown menu changes the content filter for the image search algorithm.</li>
                         <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
                     </ul>
@@ -87,6 +87,7 @@
                     <ul class="clickList">
                        <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
                        <li>Clicking a menu option closes the dropdown menu.</li>
+                       <li>The dropdown menu slides up over 400ms using an ease in and ease out transition as it closes.</li>
                     </ul>
                 </div>
             </section>
@@ -124,24 +125,25 @@
                         <ul class="feedbackHoverList">
                             <li>Changes background fill from #ffffff to #000000 over 400ms using an ease in and ease out transition. </li>
                             <li>Changes text and chevron from #000000 to #ffffff over 400 ms using an ease in and ease out transition.</li>
-                            <li>While dropdown menu is open, changes selected dropdown menu text from #ffffff to #969BFF.</li>
+                            <li>While dropdown menu is open, hovering over a menu item changes its text from #ffffff to #969BFF over 400ms using an ease in and ease out transition.</li>
                         </ul>
                         <h5 class="clickState">Off</h5>
                         <ul class="feedbackHoverList">
                             <li>Changes background fill from #000000 to #ffffff over 400ms using an ease in and ease out transition. </li>
                             <li>Changes text and chevron from #ffffff to #000000 over 400 ms using an ease in and ease out transition.</li>
-                            <li>While dropdown menu is open, changes unselected dropdown menu text from #969BFF to #ffffff.</li>
+                            <li>While dropdown menu is open, moving the pointer off a menu item changes its text from #969BFF back to #ffffff over 400ms using an ease in and ease out transition.</li>
                         </ul>
                         <h4 class="feedbackGroup">Click</h4>
                         <h5 class="clickState">On</h5>
                         <ul class="feedbackClickList">
-                            <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. This happens instantaneously and covers the content below it. </li>
+                            <li>Clicking the initial dropdown menu button opens a dropdown menu with a selection of options for different image categories. The dropdown menu slides down over 400ms using an ease in and ease out transition and covers the content below it. The menu items are Quality images, Picture of the day, Featured picture candidates, and Featured pictures.</li>
                             <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and then points down after the animation plays.</li>
                         </ul>
                         <h5 class="clickState">Off</h5>
                         <ul class="feedbackClickList">
                             <li>Opening the dropdown menu plays an animation that rotates the chevron 180 degrees over 400ms. It initially points up and points down after the animation plays.</li>
                             <li>Clicking a menu option closes the dropdown menu.</li>
+                            <li>The dropdown menu slides up over 400ms using an ease in and ease out transition as it closes.</li>
                         </ul>
                     </div>
                 </div>

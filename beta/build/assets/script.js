@@ -1,4 +1,4 @@
-// Category dropdown: opens instantly, chevron rotates, picking an option sets the filter and closes
+// Category dropdown: menu slides open, chevron rotates, picking an option sets the filter and closes
 const categorySelect = document.querySelector('.categorySelect');
 const categoryButton = categorySelect.querySelector('.categoryButton');
 const categoryLabel = categorySelect.querySelector('.categoryLabel');
