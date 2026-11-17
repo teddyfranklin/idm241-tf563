@@ -27,7 +27,9 @@
                 <div class="sectionBody">
                     <p class="locateText">The category selection button is the second button down in the "category selection section." It is located on the left side of the form fields. </p>
                     <p class="locateText">The start session button is the largest button of all the form fields. It is located at the bottom of all the buttons and is the largest button on the screen. </p>
-                    
+                    <p class="locateText">The home button is the "Wikipedia Art Reference" title in the purple header bar. It is located in the top left corner of every screen.</p>
+                    <p class="locateText">The image buttons are the Back, Reroll, Pause/Play, Next, and End buttons. They are located in the control bar directly above the image frame during a session.</p>
+
                 </div>
             </section>
 
@@ -52,6 +54,20 @@
                     <p class="triggersText">Hover off: The pointer moves off an image filter checkbox.</p>
                     <p class="triggersText">Click on: Clicking an unchecked checkbox turns that image filter on.</p>
                     <p class="triggersText">Click off: Clicking a checked checkbox turns that image filter off.</p>
+                </div>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Home Button Triggers</h3>
+                    <p class="triggersText">Hover on: The pointer moves over the title, or the title receives keyboard focus.</p>
+                    <p class="triggersText">Hover off: The pointer moves off the title, or keyboard focus leaves it.</p>
+                    <p class="triggersText">Click on: The mouse button is held down on the title.</p>
+                    <p class="triggersText">Click off: The mouse button is released on the title, or Enter or Space is pressed while it has focus.</p>
+                </div>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Image Button Triggers</h3>
+                    <p class="triggersText">Hover on: The pointer moves over an enabled image button.</p>
+                    <p class="triggersText">Hover off: The pointer moves off an image button.</p>
+                    <p class="triggersText">Click on: The mouse button is held down on an enabled image button.</p>
+                    <p class="triggersText">Click off: The mouse button is released, running that button's action.</p>
                 </div>
             </section>
 
@@ -142,6 +158,51 @@
                 </div>
             </section>
 
+            <section class="rulesSection" aria-labelledby="homeRulesHeading">
+                <h2 class="sectionHeading" id="homeRulesHeading" tabindex="0">Home Button Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <ul class="hoverList">
+                        <li>Hovering over the title sweeps #000000 across the #ffffff text from left to right over 600ms until the whole title is black. Moving the pointer off reverses the sweep back to #ffffff.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>While the mouse button is held down, the title shrinks from 36px to 32px and shifts 17px to the right, staying solid #000000 so it looks pushed in.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="clickList">
+                        <li>Releasing on the title during a session ends the session. The timer stops, any image still loading is cancelled, and the setup screen returns.</li>
+                        <li>Releasing on the title while on the setup screen does not reset anything, so the typed category and filter choices stay. The page only scrolls back to the top.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Keyboard</h3>
+                    <ul class="clickList">
+                        <li>Tabbing to the title shows the same #000000 sweep plus a #ffffff focus outline, and pressing Enter or Space works the same as a click.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="rulesSection" aria-labelledby="imageButtonRulesHeading">
+                <h2 class="sectionHeading" id="imageButtonRulesHeading" tabindex="0">Image Button Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <ul class="hoverList">
+                        <li>Hovering over an enabled button fills it with #8F8EAC and turns its text #ffffff over 150ms. Moving the pointer off returns it to #ffffff.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>While the mouse button is held down, the button turns a darker #7675A0 with a slight inner shadow at the top, so it looks pressed in.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">States</h3>
+                    <ul class="clickList">
+                        <li>Disabled buttons ignore hover and press and show grey text. Back is disabled on the first image, Next on the last image, Reroll at 0, and Back, Next, and Reroll while an image is loading.</li>
+                        <li>Pressing Pause stops the timer and relabels the button "Play". The button stays #8F8EAC for as long as the session is paused, and pressing Play resumes the timer and clears the fill.</li>
+                        <li>Each Reroll press replaces the current image and lowers the count in the label, for example "Reroll (3)" to "Reroll (2)". At 0 the button becomes disabled.</li>
+                    </ul>
+                </div>
+            </section>
+
             <section class="feedbackSection" aria-labelledby="feedbackHeading">
                 <h2 class="sectionHeading" id="feedbackHeading" tabindex="0">Category Selection Feedback</h2>
                 <div class="sectionBody">
@@ -228,6 +289,51 @@
                 </div>
             </section>
 
+            <section class="feedbackSection" aria-labelledby="homeFeedbackHeading">
+                <h2 class="sectionHeading" id="homeFeedbackHeading" tabindex="0">Home Button Feedback</h2>
+                <div class="sectionBody">
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>The left to right #000000 sweep shows the user that the title is clickable, which it never looked like as plain #ffffff text.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>The shrink and shift confirm the press before anything happens.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackClickList">
+                            <li>Switching from the session to the setup screen confirms where the user has landed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="feedbackSection" aria-labelledby="imageButtonFeedbackHeading">
+                <h2 class="sectionHeading" id="imageButtonFeedbackHeading" tabindex="0">Image Button Feedback</h2>
+                <div class="sectionBody">
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>The #8F8EAC fill shows the user which button they are about to press.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>The darker #7675A0 fill confirms the press.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">State</h4>
+                        <ul class="feedbackClickList">
+                            <li>The #8F8EAC Play button is visible from across the room while the user is drawing, so they can tell at a glance that the timer is stopped.</li>
+                            <li>The Reroll number dropping, and the button greying out at 0, shows how many rerolls are left.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section class="loopsSection" aria-labelledby="loopsHeading">
                 <h2 class="sectionHeading" id="loopsHeading" tabindex="0">Loops &amp; Modes</h2>
                 <div class="sectionBody">
@@ -256,6 +362,14 @@
                         <li>
                             <p>Image Filter Checkbox Demo</p>
                             <video src="/final/assets/demo/checkBoxDemo.mp4" autoplay muted loop playsinline controls aria-label="Image filter checkbox tinting light purple on hover, then filling with a dark purple square that grows from the center when clicked and shrinking away when clicked again"></video>
+                        </li>
+                        <li>
+                            <p>Home Button Demo</p>
+                            <video src="/final/assets/demo/homeButtonDemo.mp4" autoplay muted loop playsinline controls aria-label="Wikipedia Art Reference title turning black from left to right on hover, then shrinking and shifting right when pressed and returning to the setup screen"></video>
+                        </li>
+                        <li>
+                            <p>Image Buttons Demo</p>
+                            <video src="/final/assets/demo/imageButtonDemo.mp4" autoplay muted loop playsinline controls aria-label="Image control buttons filling lavender on hover and darker purple when pressed, with the Play button staying lavender while paused and the Reroll count dropping"></video>
                         </li>
                     </ul>
                 </div>
