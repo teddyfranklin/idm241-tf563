@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/final/assets/styles/main.css">
 </head>
 <body>
-    <a href="#interfaceHeading" class="skip">skip to content</a>
+    <a href="#locateHeading" class="skip">skip to content</a>
 
     <header class="pageHeader">
         <h1 class="pageTitle"><span class="titleCourse">UXID-241:</span> <span class="titleName">MICROINTERACTIONS</span></h1>
@@ -22,14 +22,6 @@
 
     <main>
         <div class="writing">
-            <section class="interfaceSection" aria-labelledby="interfaceHeading">
-                <h2 class="sectionHeading" id="interfaceHeading" tabindex="0">Original Interface</h2>
-                <div class="sectionBody">
-                    <img src="/final/assets/images/image.png"></img>
-                    <p class="interfaceText">WikiartRef is a web application that allows users to query categories from the wikimedia commons to be randomly selected and displayed in timed intervals. The user then draws the images within the alloted time as a means to practice their drawing skills. </p>
-                </div>
-            </section>
-
             <section class="locateSection" aria-labelledby="locateHeading">
                 <h2 class="sectionHeading" id="locateHeading" tabindex="0">Form Locations</h2>
                 <div class="sectionBody">
@@ -53,6 +45,13 @@
                     <p class="triggersText">Hover on:</p>
                     <p class="triggersText">Hover off:</p>
                     <p class="triggersText">Click on:</p>
+                </div>
+                <div class="sectionBody">
+                    <h3 class="categorySelectionTriggers">Image Filter Checkbox Triggers</h3>
+                    <p class="triggersText">Hover on: The pointer moves over an image filter checkbox.</p>
+                    <p class="triggersText">Hover off: The pointer moves off an image filter checkbox.</p>
+                    <p class="triggersText">Click on: Clicking an unchecked checkbox turns that image filter on.</p>
+                    <p class="triggersText">Click off: Clicking a checked checkbox turns that image filter off.</p>
                 </div>
             </section>
 
@@ -108,6 +107,37 @@
                         <li>Holding click on the start session button transforms the scale by .8</li>
                         <li>Releasing the click on the start session changes the scale from .8 back to 1.</li>
                         <li>When click is completed, the page changes from the dashboard to the image display page.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="rulesSection" aria-labelledby="checkboxRulesHeading">
+                <h2 class="sectionHeading" id="checkboxRulesHeading" tabindex="0">Image Filter Checkbox Rules</h2>
+                <div class="sectionBody">
+                    <h3 class="ruleOneHeading">Hover</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="hoverList">
+                        <li>Hovering over an unchecked checkbox changes its background fill from #ffffff to #D1D0E8.</li>
+                        <li>Hovering over a checked checkbox keeps its #8F8EAC fill. No hover color is applied on top of it.</li>
+                        <li>The 16px by 16px checkbox keeps its 1px #000000 border in every state.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="hoverList">
+                        <li>Moving the pointer off an unchecked checkbox changes its background fill from #D1D0E8 back to #ffffff.</li>
+                        <li>Moving the pointer off a checked checkbox leaves its #8F8EAC fill unchanged.</li>
+                    </ul>
+                    <h3 class="ruleTwoHeading">Click</h3>
+                    <h4 class="clickState">On</h4>
+                    <ul class="clickList">
+                        <li>Clicking an unchecked checkbox turns on its image filter. The filters are Black &amp; White, Greyscale, and Grid Overlay.</li>
+                        <li>A #8F8EAC square grows outward from the center of the checkbox, from 2px to 14px, over about 400ms until it fills the inside of the box.</li>
+                        <li>Once the click is completed the checkbox stays filled with #8F8EAC to show the filter is active.</li>
+                    </ul>
+                    <h4 class="clickState">Off</h4>
+                    <ul class="clickList">
+                        <li>Clicking a checked checkbox turns off its image filter.</li>
+                        <li>The #8F8EAC square shrinks back into the center of the checkbox, from 14px to 2px, over about 400ms until the box is empty.</li>
+                        <li>Once the click is completed the checkbox returns to its unchecked #ffffff fill.</li>
                     </ul>
                 </div>
             </section>
@@ -171,6 +201,33 @@
                 </div>
             </section>
 
+            <section class="feedbackSection" aria-labelledby="checkboxFeedbackHeading">
+                <h2 class="sectionHeading" id="checkboxFeedbackHeading" tabindex="0">Image Filter Checkbox Feedback</h2>
+                <div class="sectionBody">
+                    <div class="feedbackSees">
+                        <h4 class="feedbackGroup">Hover</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackHoverList">
+                            <li>An unchecked checkbox fills with #D1D0E8, showing the user that it can be clicked.</li>
+                            <li>A checked checkbox stays #8F8EAC, so the user can still tell the filter is on while hovering.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackHoverList">
+                            <li>An unchecked checkbox returns to #ffffff, showing the pointer has left it.</li>
+                        </ul>
+                        <h4 class="feedbackGroup">Click</h4>
+                        <h5 class="clickState">On</h5>
+                        <ul class="feedbackClickList">
+                            <li>A #8F8EAC square grows from the center of the checkbox over about 400ms until the box is filled, confirming the filter has been turned on.</li>
+                        </ul>
+                        <h5 class="clickState">Off</h5>
+                        <ul class="feedbackClickList">
+                            <li>The #8F8EAC square shrinks into the center of the checkbox over about 400ms until the box is empty, confirming the filter has been turned off.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
             <section class="loopsSection" aria-labelledby="loopsHeading">
                 <h2 class="sectionHeading" id="loopsHeading" tabindex="0">Loops &amp; Modes</h2>
                 <div class="sectionBody">
@@ -195,6 +252,10 @@
                         <li>
                             <p>Session Start Recording</p>
                             <video src="/final/assets/images/startSessionRecording.mp4" autoplay muted loop playsinline controls aria-label="Start session button filling purple from left to right on hover, then shrinking when clicked"></video>
+                        </li>
+                        <li>
+                            <p>Image Filter Checkbox Demo</p>
+                            <video src="/final/assets/demo/checkBoxDemo.mp4" autoplay muted loop playsinline controls aria-label="Image filter checkbox tinting light purple on hover, then filling with a dark purple square that grows from the center when clicked and shrinking away when clicked again"></video>
                         </li>
                     </ul>
                 </div>
